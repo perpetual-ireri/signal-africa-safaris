@@ -15,7 +15,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Adequate Safaris Ltd | Kenya's Leading Tours & Travel Company",
+  title: "Signal Africa Safaris Ltd | Kenya's Leading Tours and Travel Company",
   description:
     "Experience unforgettable safaris in Kenya, Uganda, Botswana, Tanzania, Rwanda and South Africa. Tailor-made wildlife adventures, cultural tours and beach holidays.",
 };
