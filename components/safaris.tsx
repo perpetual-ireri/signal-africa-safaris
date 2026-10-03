@@ -169,15 +169,28 @@ const safaris: Safari[] = [
   // RWANDA
   {
     id: "rwanda-gorilla",
-    title: "Rwanda Gorilla and Golden Monkey Trek",
+    title: "Rwanda Gorilla Trekking in Volcanoes NP",
     country: "Rwanda",
     duration: "4 Days / 3 Nights",
     groupSize: "2-6 Guests",
     price: "From $2,200",
     description:
-      "Trek mountain gorillas and golden monkeys in Volcanoes National Park.",
+      "Trek mountain gorillas and golden monkeys through the misty bamboo forests of Volcanoes National Park.",
     image:
-      "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1603199506016-b9a594b593c0?auto=format&fit=crop&w=800&q=80",
+    featured: true,
+  },
+  {
+    id: "rwanda-golden-monkey-kivu",
+    title: "Golden Monkeys and Lake Kivu Retreat",
+    country: "Rwanda",
+    duration: "5 Days / 4 Nights",
+    groupSize: "2-8 Guests",
+    price: "From $1,650",
+    description:
+      "Track playful golden monkeys in Volcanoes NP, then unwind on the serene shores of Lake Kivu.",
+    image:
+      "https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=800&q=80",
   },
 
   // SOUTH AFRICA

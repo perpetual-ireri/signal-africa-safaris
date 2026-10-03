@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Mail, MapPin, Send } from "lucide-react";
 import { CONTACT, SOCIALS, WHATSAPP_LINK } from "@/lib/constants";
 
@@ -48,14 +49,28 @@ export default function Footer() {
       <div className="container-custom py-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
         {/* Brand Column */}
         <div>
-          <Link href="/" className="inline-flex flex-col leading-none mb-4">
-            <span className="font-brand text-2xl font-bold text-white">
-              Signal Africa Safaris
-            </span>
-            <span className="text-[10px] tracking-[0.25em] uppercase text-[#d4a24c] font-medium">
-              Tours &amp; Travel · Kenya
-            </span>
+          <Link href="/" className="flex items-center gap-3 mb-4">
+            {/* Logo — single clean wrapper, no nesting */}
+            <div className="relative h-16 w-16 md:h-20 md:w-20 flex-shrink-0">
+              <Image
+                src="/images/logo.jpg"
+                alt="Signal Africa Safaris Logo"
+                fill
+                sizes="(max-width: 768px) 64px, 80px"
+                className="object-contain rounded-full"
+                priority
+              />
+            </div>
+            <div className="flex flex-col leading-none">
+              <span className="font-brand text-xl font-bold text-white">
+                Signal Africa Safaris
+              </span>
+              <span className="text-[10px] tracking-[0.25em] uppercase text-[#d4a24c] font-medium mt-1">
+                Tours &amp; Travel · Kenya
+              </span>
+            </div>
           </Link>
+
           <p className="text-sm leading-relaxed mb-6">
             Kenya&apos;s leading tours &amp; travel company. Tailor-made safaris
             across East &amp; Southern Africa — crafted around your budget,

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Phone, Mail, MessageCircle } from "lucide-react";
 import { CONTACT, WHATSAPP_LINK } from "@/lib/constants";
 
@@ -9,6 +10,7 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "Safaris", href: "/#safaris" },
   { label: "Destinations", href: "/#destinations" },
+  { label: "Our Services", href: "/#hire" },
   { label: "About Us", href: "/#about" },
   { label: "Contact", href: "/#contact" },
 ];
@@ -56,28 +58,43 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Main nav */}
+      {/* ── Milky glassmorphism navbar ─────────────────── */}
       <header
-        className={`sticky top-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-white shadow-md py-2" : "bg-white/95 py-3"
+        className={`sticky top-0 z-50 border-b backdrop-blur-xl backdrop-saturate-150 transition-all duration-300 ${
+          scrolled
+            ? "bg-white/75 border-white/50 shadow-[0_4px_24px_-8px_rgba(0,0,0,0.15)] py-1.5"
+            : "bg-white/60 border-white/35 py-2.5"
         }`}
       >
-        <nav className="container-custom flex items-center justify-between">
-          <Link href="/" className="flex flex-col leading-none">
-            <span className="font-brand text-2xl md:text-3xl font-bold text-[#1f5e3b]">
-              Signal Africa Safaris
-            </span>
-            <span className="text-[10px] tracking-[0.25em] uppercase text-[#d4a24c] font-medium">
-              Tours &amp; Travel · Kenya
-            </span>
+        {/* Subtle inner highlight so it reads as glass, not flat white */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/40 via-white/10 to-transparent" />
+
+        <nav className="container-custom relative flex items-center justify-between">
+          {/* Logo only */}
+          <Link
+            href="/"
+            aria-label="Signal Africa Safaris — Home"
+            className="flex items-center leading-none"
+          >
+            <div className="relative h-20 w-20 md:h-24 md:w-24 lg:h-28 lg:w-28 flex-shrink-0">
+              <Image
+                src="/images/logo.jpg"
+                alt="Signal Africa Safaris Logo"
+                fill
+                sizes="(max-width: 768px) 80px, (max-width: 1024px) 96px, 112px"
+                quality={90}
+                className="object-contain rounded-full scale-105 drop-shadow-sm"
+                priority
+              />
+            </div>
           </Link>
 
-          <ul className="hidden lg:flex items-center gap-8">
+          <ul className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-sm font-medium text-gray-700 hover:text-[#1f5e3b] transition-colors relative group"
+                  className="text-sm font-medium text-gray-800 hover:text-[#1f5e3b] transition-colors relative group"
                 >
                   {link.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#d4a24c] group-hover:w-full transition-all duration-300" />
@@ -102,14 +119,14 @@ export default function Navbar() {
         </nav>
 
         {isOpen && (
-          <div className="lg:hidden bg-white border-t mt-2">
+          <div className="lg:hidden relative bg-white/85 backdrop-blur-xl border-t border-white/40 mt-2">
             <ul className="container-custom py-4 flex flex-col gap-4">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="block py-2 text-gray-700 font-medium hover:text-[#1f5e3b]"
+                    className="block py-2 text-gray-800 font-medium hover:text-[#1f5e3b]"
                   >
                     {link.label}
                   </Link>
