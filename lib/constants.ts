@@ -2,7 +2,7 @@ export const CONTACT = {
   phone: "0721233126",
   phoneIntl: "+254721233126",
   whatsapp: "254721233126",
-  email: "deals@adequatesafaris.com",
+  email: "deals@SignalAfricasafaris.com",
   address: "Nairobi, Kenya",
 };
 
@@ -13,5 +13,5 @@ export const SOCIALS = {
 };
 
 export const WHATSAPP_LINK = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(
-  "Hello Adequate Safaris! I'd like to enquire about a safari package."
+  "Hello Signal Africa Safaris! I'd like to enquire about a safari package."
 )}`;
