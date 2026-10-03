@@ -119,12 +119,18 @@ export default function VehicleAndHelicopterHire() {
 
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e) => {
+  // ✅ FIXED — Type added to event parameter
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  // ✅ FIXED — Type added to event parameter
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // In production, send formData to your backend / email service
     console.log("Hire enquiry submitted:", formData);
@@ -149,7 +155,7 @@ export default function VehicleAndHelicopterHire() {
 
         <div className="container-custom relative z-10 text-center">
           <p className="text-[#b8862f] font-medium tracking-widest uppercase text-sm mb-3">
-            Vehicle & Helicopter Hire
+            Vehicle &amp; Helicopter Hire
           </p>
           <h1 className="font-brand text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-[#14291f]">
             Explore Kenya <span className="text-[#b8862f]">Your Way</span>
@@ -291,11 +297,7 @@ export default function VehicleAndHelicopterHire() {
                   </span>
                 )}
 
-                <h3
-                  className={`font-brand text-xl font-bold mb-2 ${
-                    rate.highlight ? "text-[#14291f]" : "text-[#14291f]"
-                  }`}
-                >
+                <h3 className="font-brand text-xl font-bold mb-2 text-[#14291f]">
                   {rate.tier}
                 </h3>
                 <p
@@ -369,11 +371,7 @@ export default function VehicleAndHelicopterHire() {
                   </span>
                 )}
 
-                <h3
-                  className={`font-brand text-xl font-bold mb-2 ${
-                    rate.highlight ? "text-[#14291f]" : "text-[#14291f]"
-                  }`}
-                >
+                <h3 className="font-brand text-xl font-bold mb-2 text-[#14291f]">
                   {rate.tier}
                 </h3>
                 <p
