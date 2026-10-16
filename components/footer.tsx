@@ -220,15 +220,29 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
-        <div className="container-custom py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-gray-400">
+        <div className="container-custom py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
           <p>
             © {new Date().getFullYear()} Signal Africa Safaris Ltd. All rights
             reserved.
           </p>
-          <p>Designed with love for unforgettable African adventures.</p>
+
+          <div className="flex items-center gap-4 md:gap-6">
+            <Link
+              href="/privacy"
+              className="hover:text-[#d4a24c] transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <span className="text-white/20">|</span>
+            <Link
+              href="/cancellation"
+              className="hover:text-[#d4a24c] transition-colors"
+            >
+              Cancellation Policy
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
