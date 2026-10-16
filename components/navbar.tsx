@@ -27,7 +27,7 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top bar */}
+      {/* ── Top contact bar ─────────────────────────── */}
       <div className="hidden md:block bg-[#14291f] text-white text-sm">
         <div className="container-custom flex justify-between items-center py-2">
           <div className="flex items-center gap-6">
@@ -66,49 +66,28 @@ export default function Navbar() {
             : "bg-white/60 border-white/35 py-2.5"
         }`}
       >
-        {/* Subtle inner highlight so it reads as glass, not flat white */}
+        {/* Subtle inner highlight */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/40 via-white/10 to-transparent" />
 
         <nav className="container-custom relative flex items-center justify-between">
-          {/* Logo only */}
-          <Link
-            href="/"
-            aria-label="Signal Africa Safaris — Home"
-            className="flex items-center leading-none"
-          >
-            <div className="relative h-20 w-20 md:h-24 md:w-24 lg:h-28 lg:w-28 flex-shrink-0">
-              <Image
-                src="/images/logo.jpg"
-                alt="Signal Africa Safaris Logo"
-                fill
-                sizes="(max-width: 768px) 80px, (max-width: 1024px) 96px, 112px"
-                quality={90}
-                className="object-contain rounded-full scale-105 drop-shadow-sm"
-                priority
-              />
-            </div>
-          </Link>
-
-          <ul className="hidden lg:flex items-center gap-7">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-sm font-medium text-gray-800 hover:text-[#1f5e3b] transition-colors relative group"
-                >
-                  {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#d4a24c] group-hover:w-full transition-all duration-300" />
-                </Link>
-              </li>
-            ))}
-          </ul>
-
-          <div className="hidden lg:block">
-            <Link href="/#contact" className="btn-primary text-sm">
-              Plan Your Safari
-            </Link>
+          {/* ── LEFT: Navigation Links ─────────────── */}
+          <div className="hidden lg:flex flex-1 items-center justify-start">
+            <ul className="flex items-center gap-6">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm font-medium text-gray-800 hover:text-[#1f5e3b] transition-colors relative group whitespace-nowrap"
+                  >
+                    {link.label}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#d4a24c] group-hover:w-full transition-all duration-300" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
+          {/* ── Mobile: hamburger on the left ──────── */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden p-2 text-[#14291f]"
@@ -116,8 +95,54 @@ export default function Navbar() {
           >
             {isOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
+
+          {/* ── CENTER-RIGHT: Logo with frosted circle ── */}
+          <Link
+            href="/"
+            aria-label="Signal Africa Safaris — Home"
+            className="group flex items-center leading-none mx-4 lg:mx-8 flex-shrink-0"
+          >
+            <div
+              className="
+                relative h-20 w-20 md:h-24 md:w-24 lg:h-28 lg:w-28 flex-shrink-0
+                rounded-full
+                bg-white/50
+                backdrop-blur-md
+                ring-1 ring-white/70
+                shadow-[inset_0_2px_4px_rgba(255,255,255,0.7),0_4px_16px_-4px_rgba(0,0,0,0.08)]
+                p-1.5
+                transition-all duration-500
+                group-hover:bg-white/70
+                group-hover:ring-white/90
+                group-hover:shadow-[inset_0_2px_4px_rgba(255,255,255,0.9),0_6px_20px_-4px_rgba(0,0,0,0.12)]
+              "
+            >
+              <div className="relative w-full h-full">
+                <Image
+                  src="/images/logo.png"
+                  alt="Signal Africa Safaris Logo"
+                  fill
+                  sizes="(max-width: 768px) 80px, (max-width: 1024px) 96px, 112px"
+                  quality={90}
+                  className="object-contain rounded-full"
+                  priority
+                />
+              </div>
+            </div>
+          </Link>
+
+          {/* ── RIGHT: CTA Button ─────────────────── */}
+          <div className="hidden lg:flex flex-1 items-center justify-end">
+            <Link href="/#contact" className="btn-primary text-sm">
+              Plan Your Safari
+            </Link>
+          </div>
+
+          {/* Mobile spacer for grid balance */}
+          <div className="lg:hidden w-10" aria-hidden="true" />
         </nav>
 
+        {/* ── Mobile menu dropdown ─────────────────── */}
         {isOpen && (
           <div className="lg:hidden relative bg-white/85 backdrop-blur-xl border-t border-white/40 mt-2">
             <ul className="container-custom py-4 flex flex-col gap-4">

@@ -50,17 +50,15 @@ export default function Footer() {
         {/* Brand Column */}
         <div>
           <Link href="/" className="flex items-center gap-3 mb-4">
-            {/* Logo — single clean wrapper, no nesting */}
-            <div className="relative h-16 w-16 md:h-20 md:w-20 flex-shrink-0">
-              <Image
-                src="/images/logo.jpg"
-                alt="Signal Africa Safaris Logo"
-                fill
-                sizes="(max-width: 768px) 64px, 80px"
-                className="object-contain rounded-full"
-                priority
-              />
-            </div>
+            {/* Logo — no background, no circle, blends directly onto footer */}
+            <Image
+            src="/images/logo.png"
+            alt="Signal Africa Safaris Logo"
+            width={80}
+           height={80}
+           className="object-contain flex-shrink-0 w-auto h-auto"
+           priority
+          />
             <div className="flex flex-col leading-none">
               <span className="font-brand text-xl font-bold text-white">
                 Signal Africa Safaris
